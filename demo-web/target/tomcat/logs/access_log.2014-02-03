@@ -1,0 +1,14 @@
+0:0:0:0:0:0:0:1 - - [03/Feb/2014:00:08:01 +0800] "GET /petdemo/vets.html HTTP/1.1" 200 3511 http-bio-9966-exec-3 312
+0:0:0:0:0:0:0:1 - - [03/Feb/2014:00:08:01 +0800] "GET /petdemo/datatablesController/datatables-bootstrap2.css?id=vets&c=%2Fpetdemo%2Fvets.html HTTP/1.1" 200 3322 http-bio-9966-exec-3 1
+0:0:0:0:0:0:0:1 - - [03/Feb/2014:00:08:01 +0800] "GET /petdemo/datatablesController/datatables-86630.js?id=vets&t=main&c=%2Fpetdemo%2Fvets.html HTTP/1.1" 200 6111 http-bio-9966-exec-3 1
+0:0:0:0:0:0:0:1 - - [03/Feb/2014:00:08:22 +0800] "GET /petdemo/ HTTP/1.1" 200 2340 http-bio-9966-exec-3 12
+0:0:0:0:0:0:0:1 - - [03/Feb/2014:00:08:23 +0800] "GET /petdemo/owners/find.html HTTP/1.1" 200 2911 http-bio-9966-exec-3 17
+0:0:0:0:0:0:0:1 - - [03/Feb/2014:00:08:26 +0800] "GET /petdemo/vets.html HTTP/1.1" 200 3511 http-bio-9966-exec-3 36
+0:0:0:0:0:0:0:1 - - [03/Feb/2014:00:08:26 +0800] "GET /petdemo/datatablesController/datatables-bootstrap2.css?id=vets&c=%2Fpetdemo%2Fvets.html HTTP/1.1" 200 3322 http-bio-9966-exec-3 0
+0:0:0:0:0:0:0:1 - - [03/Feb/2014:00:08:26 +0800] "GET /petdemo/datatablesController/datatables-13831.js?id=vets&t=main&c=%2Fpetdemo%2Fvets.html HTTP/1.1" 200 6111 http-bio-9966-exec-10 2
+0:0:0:0:0:0:0:1 - - [03/Feb/2014:00:08:31 +0800] "GET /petdemo/owners/find.html HTTP/1.1" 200 2911 http-bio-9966-exec-10 9
+0:0:0:0:0:0:0:1 - - [03/Feb/2014:00:08:48 +0800] "GET /petdemo/vets.html HTTP/1.1" 200 3511 http-bio-9966-exec-10 32
+0:0:0:0:0:0:0:1 - - [03/Feb/2014:00:08:48 +0800] "GET /petdemo/datatablesController/datatables-bootstrap2.css?id=vets&c=%2Fpetdemo%2Fvets.html HTTP/1.1" 200 3322 http-bio-9966-exec-10 1
+0:0:0:0:0:0:0:1 - - [03/Feb/2014:00:08:48 +0800] "GET /petdemo/datatablesController/datatables-72537.js?id=vets&t=main&c=%2Fpetdemo%2Fvets.html HTTP/1.1" 200 6111 http-bio-9966-exec-10 1
+0:0:0:0:0:0:0:1 - - [03/Feb/2014:00:08:50 +0800] "GET /petdemo/vets.xml HTTP/1.1" 200 867 http-bio-9966-exec-10 82
+0:0:0:0:0:0:0:1 - - [03/Feb/2014:00:08:54 +0800] "GET /petdemo/vets.atom HTTP/1.1" 200 969 http-bio-9966-exec-10 82
