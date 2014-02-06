@@ -23,6 +23,11 @@ import com.pet.demo.model.Account;
 import com.pet.demo.model.Role;
 import com.pet.demo.security.PetDemoSecurityService;
 
+/**
+ * 
+ * @author wangchao
+ *
+ */
 public class ShiroDbRealm extends AuthorizingRealm {
 
 	public static final String HASH_ALGORITHM = "SHA-1";
