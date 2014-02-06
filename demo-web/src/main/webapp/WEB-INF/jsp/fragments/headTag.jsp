@@ -25,9 +25,22 @@ PetClinic :: a Spring Framework demonstration
 	<spring:url value="/webjars/jquery-ui/1.10.3/ui/jquery.ui.datepicker.js" var="jQueryUiDatePicker"/>
     <script src="${jQueryUiDatePicker}"></script>
     
+    <!-- jquery-validation file is  -->
+    <spring:url value="/webjars/jquery-validation/1.11.1/jquery.validate.js" var="jQueryValidate"/>
+    <script src="${jQueryValidate}"></script>
+    
+    <!-- jquery-validation file is  -->
+    <spring:url value="/webjars/jquery-validation/1.11.1/localization/messages_zh.js" var="jQueryValidateMessage"/>
+    <script src="${jQueryValidateMessage}"></script>
+   
+    <!-- jquery-ui.css file is not that big so we can afford to load it -->
+    <spring:url value="/webjars/jquery-validation/1.11.1/validate.css" var="jQueryValidateCss"/>
+   	<link href="${jQueryValidateCss}" type="text/css" rel="stylesheet" />
+    
     <!-- jquery-ui.css file is not that big so we can afford to load it -->
     <spring:url value="/webjars/jquery-ui/1.10.3/themes/base/jquery-ui.css" var="jQueryUiCss"/>
     <link href="${jQueryUiCss}" rel="stylesheet"></link>
+
 </head>
 
 

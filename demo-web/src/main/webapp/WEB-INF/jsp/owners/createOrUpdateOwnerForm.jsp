@@ -19,16 +19,20 @@
         <c:when test="${owner['new']}"><c:set var="method" value="post"/></c:when>
         <c:otherwise><c:set var="method" value="put"/></c:otherwise>
     </c:choose>
-
     <h2>
         <c:if test="${owner['new']}">New </c:if> Owner
     </h2>
     <form:form modelAttribute="owner" method="${method}" class="form-horizontal" id="add-owner-form">
-        <petclinic:inputField label="First Name" name="firstName"/>
-        <petclinic:inputField label="Last Name" name="lastName"/>
-        <petclinic:inputField label="Address" name="address"/>
-        <petclinic:inputField label="City" name="city"/>
-        <petclinic:inputField label="Telephone" name="telephone"/>
+    	<fmt:message key="label.firstname" var="firstname"/>
+        <petclinic:inputField label="${firstname}" name="firstName"/>
+        <fmt:message key="label.lastname" var="lastname"/>
+        <petclinic:inputField label="${lastname}" name="lastName"/>
+        <fmt:message key="label.address" var="address"/>
+        <petclinic:inputField label="${address}" name="address"/>
+        <fmt:message key="label.city" var="city"/>
+        <petclinic:inputField label="${city}" name="city"/>
+        <fmt:message key="label.telephone" var="telephone"/>
+        <petclinic:inputField label="${telephone}" name="telephone"/>
 
         <div class="form-actions">
             <c:choose>

@@ -1,13 +1,23 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <spring:url value="/resources/images/banner-graphic.png" var="banner"/>
+
+<span style="float: right">
+	<a href="<spring:url value="?lang=en" htmlEscape="true" />">en</a> 
+	| 
+	<a href="<spring:url value="?lang=de" htmlEscape="true" />">de</a>
+	| 
+	<a href="<spring:url value="?lang=zh_CN" htmlEscape="true" />">zh_cn</a>
+</span>
+
 <img src="${banner}"/>
 
 <div class="navbar" style="width: 601px;">
     <div class="navbar-inner">
         <ul class="nav">
-            <li style="width: 100px;"><a href="<spring:url value="/" htmlEscape="true" />"><i class="icon-home"></i>
+            <li style="width: 100px;"><a href="<spring:url value="/welcome" htmlEscape="true" />"><i class="icon-home"></i>
                 Home</a></li>
             <li style="width: 130px;"><a href="<spring:url value="/owners/find.html" htmlEscape="true" />"><i
                     class="icon-search"></i> Find owners</a></li>

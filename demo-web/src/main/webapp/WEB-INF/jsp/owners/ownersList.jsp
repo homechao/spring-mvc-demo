@@ -16,7 +16,7 @@
     <h2>Owners</h2>
     
     <datatables:table id="owners" data="${selections}" cdn="true" row="owner" theme="bootstrap2" 
-                      cssClass="table table-striped" paginate="false" info="false" export="pdf">
+                      cssClass="table table-striped" paginate="true" info="false" export="pdf">
         <datatables:column title="Name" cssStyle="width: 150px;" display="html">
             <spring:url value="/owners/{ownerId}.html" var="ownerUrl">
                 <spring:param name="ownerId" value="${owner.id}"/>

@@ -36,6 +36,9 @@
             <td>
                 <a href="<spring:url value="/vets.atom" htmlEscape="true" />">Subscribe to Atom feed</a>
             </td>
+            <td>
+                <a href="<spring:url value="/vets.json" htmlEscape="true" />">View as Json</a>
+            </td>
         </tr>
     </table>
 

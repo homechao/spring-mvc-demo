@@ -18,6 +18,8 @@ package com.pet.demo.service;
 import java.util.Collection;
 
 import org.springframework.dao.DataAccessException;
+
+import com.pet.demo.model.Account;
 import com.pet.demo.model.Owner;
 import com.pet.demo.model.Pet;
 import com.pet.demo.model.PetType;
@@ -47,5 +49,12 @@ public interface PetDemoService {
     public void saveOwner(Owner owner) throws DataAccessException;
 
     Collection<Owner> findOwnerByLastName(String lastName) throws DataAccessException;
+    
+    //wangchao
+    public Account findAccountById(int id) throws DataAccessException;
+    
+    public Account findAccountByUsername(String username, String password) throws DataAccessException;
+    
+    public void saveAccount(Account account) throws DataAccessException;
 
 }
