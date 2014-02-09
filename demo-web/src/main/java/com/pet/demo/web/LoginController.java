@@ -8,14 +8,13 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.pet.demo.model.Account;
@@ -30,6 +29,11 @@ public class LoginController {
     public LoginController(PetDemoService petDemoService) {
 		this.petDemoService = petDemoService;
 	}
+    
+    @ModelAttribute("regAccount")
+    public Account populatePetTypes() {
+        return new Account();
+    }
 
 	@RequestMapping(value = "/welcome")
     public String toWelcome(Map<String, Object> model) {
@@ -39,7 +43,10 @@ public class LoginController {
 	@RequestMapping(value = "/login")
     public String initLoginForm(Map<String, Object> model) {
 		Account account = new Account();
-        model.put("account", account);
+		Account regAccount = new Account();
+		model.put("account", account);
+		model.put("regAccount", regAccount);
+
         return "login";
     }
 	
@@ -53,10 +60,10 @@ public class LoginController {
         	currentUser.login(token);
         }catch (AuthenticationException e) {
             token.clear();
-            e.printStackTrace();
+        	result.rejectValue("userName", "invalidaccount");
+        	result.rejectValue("password", "invalidaccount");
             return "login";
         }
-        
         
         if(currentUser.isAuthenticated()){ 
         	session.setAttribute("userinfo", account); 

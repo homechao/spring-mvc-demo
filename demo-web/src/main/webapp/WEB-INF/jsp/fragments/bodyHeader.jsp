@@ -18,16 +18,16 @@
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 		              <li class="dropdown">
-		                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="lable.language"/><b class="caret"></b></a>
+		                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="label.head.language"/><b class="caret"></b></a>
 		                <ul class="dropdown-menu">
-		                  <li><a href="<spring:url value="?lang=en" htmlEscape="true" />"><fmt:message key="lable.lang_en"/></a></li>
-		                  <li><a href="<spring:url value="?lang=zh_CN" htmlEscape="true" />"><fmt:message key="lable.lang_cn"/></a></li>
+		                  <li><a href="<spring:url value="?lang=en" htmlEscape="true" />"><fmt:message key="label.head.lang_en"/></a></li>
+		                  <li><a href="<spring:url value="?lang=zh_CN" htmlEscape="true" />"><fmt:message key="label.head.lang_cn"/></a></li>
 		                </ul>
 		              </li>
 					</ul>
 					<ul class="nav pull-right">
-					  <button onclick="window.location.href='/login'" class="btn">Sign in</button>
-					  <button type="submit" class="btn">Sign up</button>
+					  <button onclick="window.location.href='/login'" class="btn"><fmt:message key="lable.head.signin"/></button>
+					  <button onclick="window.location.href='/login'" class="btn"><fmt:message key="lable.head.signup"/></button>
 					</ul>
 				</div>
 				<!-- 

@@ -10,6 +10,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.annotations.Cache;
@@ -45,6 +46,17 @@ public class Account extends BaseEntity {
 
 	@Column(name="user_name", nullable=false, length=255)
 	private String userName;
+	
+	@Transient
+	private boolean subscribe;
+
+	public boolean isSubscribe() {
+		return subscribe;
+	}
+
+	public void setSubscribe(boolean subscribe) {
+		this.subscribe = subscribe;
+	}
 
 	//bi-directional many-to-many association to Role
 	@ManyToMany
