@@ -2,19 +2,48 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<spring:url value="/resources/images/banner-graphic.png" var="banner"/>
+<spring:url value="/resources/images/logo20.png" var="banner"/>
 
-<span style="float: right">
-	<a href="<spring:url value="?lang=en" htmlEscape="true" />">en</a> 
-	| 
-	<a href="<spring:url value="?lang=de" htmlEscape="true" />">de</a>
-	| 
-	<a href="<spring:url value="?lang=zh_CN" htmlEscape="true" />">zh_cn</a>
-</span>
+
+		<!-- topbar starts -->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+	            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="brand" href="#"><span>Pet Demo Web </span></a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+		              <li class="dropdown">
+		                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="lable.language"/><b class="caret"></b></a>
+		                <ul class="dropdown-menu">
+		                  <li><a href="<spring:url value="?lang=en" htmlEscape="true" />"><fmt:message key="lable.lang_en"/></a></li>
+		                  <li><a href="<spring:url value="?lang=zh_CN" htmlEscape="true" />"><fmt:message key="lable.lang_cn"/></a></li>
+		                </ul>
+		              </li>
+					</ul>
+					<ul class="nav pull-right">
+					  <button onclick="window.location.href='/login'" class="btn">Sign in</button>
+					  <button type="submit" class="btn">Sign up</button>
+					</ul>
+				</div>
+				<!-- 
+				<span class="">
+					<a href="<spring:url value="?lang=en" htmlEscape="true" />">EN</a>
+					|<a href="<spring:url value="?lang=zh_CN" htmlEscape="true" />">CN</a>
+				</span>
+ 				-->
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
 
 <img src="${banner}"/>
 
-<div class="navbar" style="width: 601px;">
+<div class="navbar">
     <div class="navbar-inner">
         <ul class="nav">
             <li style="width: 100px;"><a href="<spring:url value="/welcome" htmlEscape="true" />"><i class="icon-home"></i>

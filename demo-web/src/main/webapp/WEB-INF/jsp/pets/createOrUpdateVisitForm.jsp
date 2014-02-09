@@ -81,6 +81,7 @@
 
 </div>
 <jsp:include page="../fragments/footer.jsp"/>
+<jsp:include page="../fragments/bootstrap-js.jsp"/>
 </body>
 
 </html>
