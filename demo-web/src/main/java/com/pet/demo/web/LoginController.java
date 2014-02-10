@@ -3,6 +3,7 @@ package com.pet.demo.web;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -15,19 +16,21 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.pet.demo.model.Account;
-import com.pet.demo.service.PetDemoService;
+import com.pet.demo.service.PetDemoSecurityService;
 
 @Controller
 public class LoginController {
 
-    private final PetDemoService petDemoService;
+    private final PetDemoSecurityService petDemoSecurityService;
     
     @Autowired
-    public LoginController(PetDemoService petDemoService) {
-		this.petDemoService = petDemoService;
+    public LoginController(PetDemoSecurityService petDemoSecurityService) {
+		this.petDemoSecurityService = petDemoSecurityService;
 	}
     
     @ModelAttribute("regAccount")
@@ -36,12 +39,21 @@ public class LoginController {
     }
 
 	@RequestMapping(value = "/welcome")
-    public String toWelcome(Map<String, Object> model) {
+    public String toWelcome() {
         return "welcome";
+    }
+	
+	@RequestMapping(value = "/unauthorzied")
+    public String toUnauthorized() {
+        return "unauthorized";
     }
 	
 	@RequestMapping(value = "/login")
     public String initLoginForm(Map<String, Object> model) {
+		Subject currentUser = SecurityUtils.getSubject();
+        if(currentUser.isAuthenticated()){ 
+        	return "welcome";
+        }
 		Account account = new Account();
 		Account regAccount = new Account();
 		model.put("account", account);
@@ -54,7 +66,6 @@ public class LoginController {
     public String validatorAccount(Account account, BindingResult result, SessionStatus status, Model model, HttpSession session ) {
     	Subject currentUser = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(account.getUserName(), account.getPassword()); 
-        //token.setRememberMe(true);
     	
         try {
         	currentUser.login(token);
@@ -66,26 +77,48 @@ public class LoginController {
         }
         
         if(currentUser.isAuthenticated()){ 
-        	session.setAttribute("userinfo", account); 
         	return "welcome";
         	
         }else{
         	return "login";
         }
-        /*
+    }
+    
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String saveAccount(@Valid @ModelAttribute("regAccount") Account account,Map<String, Object> model, BindingResult result) {
+    	Subject currentUser = SecurityUtils.getSubject();
+        if(currentUser.isAuthenticated()){
+        	result.rejectValue("userName", "invalidaccount");
+        }
+        
+        Account loginAccount = new Account();
+		model.put("account", loginAccount);
+		
+		new AccountValidator().validate(account, result);
+		
+		account.setStatus("enabled");
+		
         if (result.hasErrors()) {
             return "login";
         } else {
-        	//Account account1 = this.petDemoService.findAccountByUsername(account.getUserName(), account.getPassword());
-        	Account account1 = null;
-            if(account1 == null){
-            	result.rejectValue("userName", "invalidaccount");
-            	result.rejectValue("password", "invalidaccount");
-            	return "login";
-            }
+            this.petDemoSecurityService.saveUser(account);
+            return "login";
         }
-        return "welcome";
-        */
+        
     }
     
+	@RequestMapping(value = "/login/checkLoginName")
+	@ResponseBody
+	public String checkLoginName(@RequestParam("userName") String loginName) {
+		try{
+			if(petDemoSecurityService.findAccountByUsername(loginName) == null) {
+				return "true";
+			}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+
+		return "false";
+	}
+
 }

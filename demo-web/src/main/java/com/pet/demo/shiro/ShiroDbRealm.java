@@ -21,7 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.google.common.base.Objects;
 import com.pet.demo.model.Account;
 import com.pet.demo.model.Role;
-import com.pet.demo.security.PetDemoSecurityService;
+import com.pet.demo.service.PetDemoSecurityService;
 
 /**
  * @since 2005-2014
@@ -35,10 +35,11 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	public static final int HASH_INTERATIONS = 1024;
 	private static final int SALT_SIZE = 8;
 	
-	private PetDemoSecurityService petDemoSecurityService;
-	
 	@Autowired
-	public ShiroDbRealm(PetDemoSecurityService petDemoSecurityService) {
+	private PetDemoSecurityService petDemoSecurityService;
+
+	public void setPetDemoSecurityService(
+			PetDemoSecurityService petDemoSecurityService) {
 		this.petDemoSecurityService = petDemoSecurityService;
 	}
 

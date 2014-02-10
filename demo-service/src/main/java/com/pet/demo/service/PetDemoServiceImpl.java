@@ -48,18 +48,17 @@ public class PetDemoServiceImpl implements PetDemoService {
 	private VetRepository vetRepository;
 	private OwnerRepository ownerRepository;
 	private VisitRepository visitRepository;
-	// wangchao
-	private AccountRepository accountRepository;
+
 
 	@Autowired
 	public PetDemoServiceImpl(PetRepository petRepository,
 			VetRepository vetRepository, OwnerRepository ownerRepository,
-			VisitRepository visitRepository, AccountRepository accountRepository) {
+			VisitRepository visitRepository) {
 		this.petRepository = petRepository;
 		this.vetRepository = vetRepository;
 		this.ownerRepository = ownerRepository;
 		this.visitRepository = visitRepository;
-		this.accountRepository = accountRepository;
+		//this.accountRepository = accountRepository;
 	}
 
 	@Transactional(readOnly = true)
@@ -104,21 +103,5 @@ public class PetDemoServiceImpl implements PetDemoService {
 		return vetRepository.findAll();
 	}
 
-	@Transactional(readOnly = true)
-	public Account findAccountById(int id) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return accountRepository.findById(id);
-	}
-
-	@Transactional
-	public void saveAccount(Account account) throws DataAccessException {
-		accountRepository.save(account);
-	}
-
-	@Transactional(readOnly = true)
-	public Account findAccountByUsername(String username, String password)
-			throws DataAccessException {
-		return accountRepository.findByUsername(username, password);
-	}
 
 }

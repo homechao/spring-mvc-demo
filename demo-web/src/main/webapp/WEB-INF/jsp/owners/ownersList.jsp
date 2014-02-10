@@ -8,7 +8,11 @@
 
 <html lang="en">
 
-<jsp:include page="../fragments/headTag.jsp"/>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<jsp:include page="../fragments/headTag.jsp"/>
+</head>
 
 <body>
 <div class="container">

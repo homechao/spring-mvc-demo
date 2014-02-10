@@ -5,7 +5,7 @@
 	description="Name of corresponding property in bean object"%>
 <%@ attribute name="label" required="true" rtexprvalue="true"
 	description="Label appears in red color if input is considered as invalid after submission"%>
-<%@ attribute name="labelfor" required="true" rtexprvalue="true"
+<%@ attribute name="labelfor" required="false" rtexprvalue="true"
 	description="Label appears in red color if input is considered as invalid after submission"%>
 
 <spring:bind path="${name}">

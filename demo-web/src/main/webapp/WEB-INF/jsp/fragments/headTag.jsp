@@ -4,9 +4,7 @@
 PetClinic :: a Spring Framework demonstration
 -->
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>PetClinic :: a Spring Framework demonstration</title>
 
 
@@ -45,6 +43,5 @@ PetClinic :: a Spring Framework demonstration
     <spring:url value="/webjars/bootstrap/2.3.2/css/bootstrap-responsive.min.css" var="bootstrapResponsiveCss"/>
     <link href="${bootstrapResponsiveCss}" rel="stylesheet">
 
-</head>
 
 

@@ -43,10 +43,20 @@ public class JpaAccountRepositoryImpl implements AccountRepository {
     }
 
     public void save(Account account) {
+		try{
+			throw new Exception("jpa1");
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
     	if (account.getId() == null) {
-    		this.em.persist(account);     		
+    		this.em.persist(account);
     	}
     	else {
+    		try{
+    			throw new Exception("jpa2");
+    		}catch(Exception ex){
+    			ex.printStackTrace();
+    		}
     		this.em.merge(account);    
     	}
 
@@ -67,6 +77,12 @@ public class JpaAccountRepositoryImpl implements AccountRepository {
 	public Account findByUsername(String username) throws DataAccessException {
         Query query = this.em.createQuery("SELECT account FROM Account account WHERE account.userName =:username ");
         query.setParameter("username", username);
+        
+		try{
+			throw new Exception("jpa1");
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
         Collection<Account> results = query.getResultList();
         if(results.size() == 1){
         	return results.iterator().next();

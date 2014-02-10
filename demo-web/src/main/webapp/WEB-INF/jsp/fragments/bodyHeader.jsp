@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <spring:url value="/resources/images/logo20.png" var="banner"/>
@@ -25,18 +26,19 @@
 		                </ul>
 		              </li>
 					</ul>
+					<shiro:guest>
 					<ul class="nav pull-right">
 					  <button onclick="window.location.href='/login'" class="btn"><fmt:message key="lable.head.signin"/></button>
 					  <button onclick="window.location.href='/login'" class="btn"><fmt:message key="lable.head.signup"/></button>
 					</ul>
+					</shiro:guest>
+					<shiro:authenticated>
+					<ul class="nav pull-right">
+					  <a class="brand" href="#"><span>Hello, <shiro:principal/> </span></a>
+					  <button onclick="window.location.href='/logout'" class="btn"><fmt:message key="lable.head.logout"/></button>
+					</ul>
+					</shiro:authenticated>
 				</div>
-				<!-- 
-				<span class="">
-					<a href="<spring:url value="?lang=en" htmlEscape="true" />">EN</a>
-					|<a href="<spring:url value="?lang=zh_CN" htmlEscape="true" />">CN</a>
-				</span>
- 				-->
-				<!--/.nav-collapse -->
 			</div>
 		</div>
 	</div>

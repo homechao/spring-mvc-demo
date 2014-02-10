@@ -49,12 +49,6 @@ public interface PetDemoService {
     public void saveOwner(Owner owner) throws DataAccessException;
 
     Collection<Owner> findOwnerByLastName(String lastName) throws DataAccessException;
-    
-    //wangchao
-    public Account findAccountById(int id) throws DataAccessException;
-    
-    public Account findAccountByUsername(String username, String password) throws DataAccessException;
-    
-    public void saveAccount(Account account) throws DataAccessException;
+
 
 }

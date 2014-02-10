@@ -4,13 +4,36 @@
 <%@ page import="org.apache.shiro.authc.LockedAccountException "%>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="stag" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<jsp:include page="fragments/headTag.jsp"/>
+	<script>
+		$(document).ready(function() {
+			//为inputForm注册validate函数
+			$("#inputForm").validate({
+				rules: {
+					userName: {
+						remote: {
+							url:"/login/checkLoginName.html",
+							type: 'GET'
+						}
+					}
+				},
+				messages: {
+					userName: "<fmt:message key='error.username_unavailable'/>"
+				}
+			});
+		});
+	</script>
 
-<jsp:include page="fragments/headTag.jsp"/>
+</head>
 
 <body>
 <div id="main" class="container">
@@ -42,12 +65,12 @@
                        <div id="signin" class="panel panel-default">
                            <div class="panel-heading"><fmt:message key="label.signin.login.title"/>:</div>
                            <div class="panel-body">
-	                           <form:form modelAttribute="account" method="post">
+	                           <form:form modelAttribute="account" action="/login" method="post">
 	                               <fieldset>
     								  <fmt:message key="label.signin.username" var="username"/>
                                       <stag:inputField label="${username}" name="userName" labelfor="iusername"/>
     								  <fmt:message key="label.signin.password" var="password"/>
-                                      <stag:inputField label="${password}" name="password" labelfor="ipassword"/>
+                                      <stag:passwordField label="${password}" name="password" labelfor="ipassword"/>
                                       <div class="actions">
                                          <button type="submit" class="btn primary large"><fmt:message key="label.signin.login"/></button>
                                          <fmt:message key="label.signin.username" var="resetusername"/>
@@ -62,8 +85,9 @@
  					   <div id="signup" class="panel panel-default">
                             <div class="panel-heading"><fmt:message key="label.signin.create.title"/></div>
                             <div class="panel-body">
-	                            <form:form modelAttribute="regAccount" action="/signup" method="post" class="form-stacked">
+	                            <form:form id="inputForm" modelAttribute="regAccount" action="/save" method="post" class="form-stacked">
 	                                <fieldset>
+	                                  <div id="messageBox" class="alert alert-error input-large controls" style="display:none">输入有误，请先更正。</div>
     								  <fmt:message key="label.signin.username" var="username"/>
                                       <stag:inputField label="${username}" name="userName" labelfor="iusername"/>
     								  <fmt:message key="label.signin.name" var="name"/>
@@ -71,7 +95,7 @@
     								  <fmt:message key="label.signin.email" var="email"/>
                                       <stag:inputField label="${email}" name="email" labelfor="imail"/>
     								  <fmt:message key="label.signin.password" var="password"/>
-                                      <stag:inputField label="${password}" name="password" labelfor="ipassword"/>
+                                      <stag:passwordField label="${password}" name="password" labelfor="ipassword"/>
                                       <div class="clearfix">
                                          <div class="input">
                                              <ul class="inputs-list">
