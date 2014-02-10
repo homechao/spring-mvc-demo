@@ -5,7 +5,7 @@ PetClinic :: a Spring Framework demonstration
 -->
 
 
-    <title>PetClinic :: a Spring Framework demonstration</title>
+    <title>PetDemo :: a Spring Framework demonstration</title>
 
 
     <spring:url value="/webjars/bootstrap/2.3.2/css/bootstrap.min.css" var="bootstrapCss"/>
