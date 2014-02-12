@@ -8,14 +8,12 @@
 
 	<description>Shiro Configuration</description>
 
-	<context:component-scan base-package="com.pet.demo.security" />
-
 	<!-- Shiro Filter -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
 		<property name="loginUrl" value="/login" />
 		<property name="successUrl" value="/welcome" />
-		<property name="unauthorizedUrl" value="/welcome" />
+		<property name="unauthorizedUrl" value="/unauthorzied" />
 		<property name="filterChainDefinitions">
 			<value>
 				/login = anon
@@ -34,8 +32,7 @@
 	</bean>
 
 	<!-- 項目自定义的Realm -->
-	<bean id="shiroDbRealm" class="com.pet.demo.shiro.ShiroDbRealm" />
-
+	<bean id="shiroDbRealm" class="com.pet.demo.shiro.ShiroDbRealm"/>
 
 	<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
 		<property name="cacheManagerConfigFile" value="classpath:cache/ehcache-shiro.xml" />
