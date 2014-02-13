@@ -5,8 +5,8 @@
 
 <spring:url value="/resources/images/logo20.png" var="banner"/>
 
-
-		<!-- topbar starts -->
+	<header>
+	<!-- topbar starts -->
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
@@ -15,21 +15,21 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="brand" href="#"><span>Pet Demo Web </span></a>
+				<a class="brand brand-bootbus" href="#"><span>Pet Demo Web </span></a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-		              <li class="dropdown">
-		                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="label.head.language"/><b class="caret"></b></a>
-		                <ul class="dropdown-menu">
-		                  <li><a href="<spring:url value="?lang=en" htmlEscape="true" />"><fmt:message key="label.head.lang_en"/></a></li>
-		                  <li><a href="<spring:url value="?lang=zh_CN" htmlEscape="true" />"><fmt:message key="label.head.lang_cn"/></a></li>
+		              <li class="dropdown dropdown-small">
+		                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><small><fmt:message key="label.head.language"/></small><b class="caret"></b></a>
+		                <ul class="dropdown-menu inline">
+		                  <li><a href="<spring:url value="?lang=en" htmlEscape="true" />"><small><fmt:message key="label.head.lang_en"/> </small><i class="intl-flag-us"></i></a></li>
+		                  <li><a href="<spring:url value="?lang=zh_CN" htmlEscape="true" />"><small><fmt:message key="label.head.lang_cn"/> </small><i class="intl-flag-cn"></i></a></li>
 		                </ul>
 		              </li>
 					</ul>
 					<shiro:guest>
 					<ul class="nav pull-right">
-					  <button onclick="window.location.href='/login'" class="btn"><fmt:message key="lable.head.signin"/></button>
-					  <button onclick="window.location.href='/login'" class="btn"><fmt:message key="lable.head.signup"/></button>
+					  <a class="btn btn-small" href="/login"><i class="icon-user"></i> <fmt:message key="lable.head.signin"/></a>
+					  <a class="btn btn-small" href="/login"><i class="icon-tag"></i> <fmt:message key="lable.head.signup"/></a>
 					</ul>
 					</shiro:guest>
 					<shiro:authenticated>
@@ -42,8 +42,7 @@
 			</div>
 		</div>
 	</div>
-
-<img src="${banner}"/>
+	</header>
 
 <div class="navbar">
     <div class="navbar-inner">

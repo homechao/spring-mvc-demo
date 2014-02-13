@@ -10,9 +10,25 @@ PetClinic :: a Spring Framework demonstration
 
     <spring:url value="/webjars/bootstrap/2.3.2/css/bootstrap.min.css" var="bootstrapCss"/>
     <link href="${bootstrapCss}" rel="stylesheet"/>
+    
+    <spring:url value="/webjars/bootstrap/2.3.2/css/bootstrap-responsive.min.css" var="bootstrapResponsiveCss"/>
+    <link href="${bootstrapResponsiveCss}" rel="stylesheet">
 
+ 
     <spring:url value="/resources/css/petdemo.css" var="petDemoCss"/>
     <link href="${petDemoCss}" rel="stylesheet"/>
+    
+    <spring:url value="/resources/css/intl-flag-icons.css" var="intlFlagCss"/>
+    <link href="${intlFlagCss}" rel="stylesheet"/>
+
+<!-- 
+    <spring:url value="/resources/css/font-awesome.css" var="fontaweCss"/>
+    <link href="${fontaweCss}" rel="stylesheet"/>
+    <spring:url value="/resources/css/font-awesome-ie7.css" var="fontaweie7Css"/>
+    <link href="${fontaweie7Css}" rel="stylesheet"/>
+    <spring:url value="/resources/css/boot-business.css" var="bootBusinessCss"/>
+    <link href="${bootBusinessCss}" rel="stylesheet"/>
+-->
 
     <spring:url value="/webjars/jquery/2.0.3/jquery.js" var="jQuery"/>
     <script src="${jQuery}"></script>
@@ -39,9 +55,7 @@ PetClinic :: a Spring Framework demonstration
     <!-- jquery-ui.css file is not that big so we can afford to load it -->
     <spring:url value="/webjars/jquery-ui/1.10.3/themes/base/jquery-ui.css" var="jQueryUiCss"/>
     <link href="${jQueryUiCss}" rel="stylesheet"></link>
-    
-    <spring:url value="/webjars/bootstrap/2.3.2/css/bootstrap-responsive.min.css" var="bootstrapResponsiveCss"/>
-    <link href="${bootstrapResponsiveCss}" rel="stylesheet">
+
 
 
 
