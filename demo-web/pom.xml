@@ -13,6 +13,7 @@
 	<properties>
 		<!-- Generic properties -->
 		<java.version>1.7</java.version>
+		<jetty.version>6.1.25</jetty.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -385,6 +386,18 @@
 					</descriptorRefs>
 				</configuration>
 			</plugin>
+			
+			<!-- Plugin to run and test through maven -->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>${jetty.version}</version>
+				<configuration>
+					<scanIntervalSeconds>3</scanIntervalSeconds>
+					<reload>manual</reload>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
