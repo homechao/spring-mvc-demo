@@ -3,7 +3,7 @@
 <table class="footer">
     <tr>
         <td></td>
-        <td align="right">@Power by our term </td>
+        <td align="right">@Power by ... </td>
     </tr>
 </table>
 

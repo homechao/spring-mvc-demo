@@ -21,8 +21,8 @@
 		              <li class="dropdown dropdown-small">
 		                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><small><fmt:message key="label.head.language"/></small><b class="caret"></b></a>
 		                <ul class="dropdown-menu inline">
-		                  <li><a href="<spring:url value="?lang=en" htmlEscape="true" />"><small><fmt:message key="label.head.lang_en"/> </small><i class="intl-flag-us"></i></a></li>
-		                  <li><a href="<spring:url value="?lang=zh_CN" htmlEscape="true" />"><small><fmt:message key="label.head.lang_cn"/> </small><i class="intl-flag-cn"></i></a></li>
+		                  <li><a href="<spring:url value="?lang=en" htmlEscape="true" />"><small><i class="intl-flag-us"></i>&nbsp;<fmt:message key="label.head.lang_en"/></small></a></li>
+		                  <li><a href="<spring:url value="?lang=zh_CN" htmlEscape="true" />"><small><i class="intl-flag-cn"></i>&nbsp;<fmt:message key="label.head.lang_cn"/> </small></a></li>
 		                </ul>
 		              </li>
 					</ul>
@@ -47,17 +47,24 @@
 <div class="navbar">
     <div class="navbar-inner">
         <ul class="nav">
-            <li style="width: 100px;"><a href="<spring:url value="/welcome" htmlEscape="true" />"><i class="icon-home"></i>
-                Home</a></li>
-            <li style="width: 130px;"><a href="<spring:url value="/owners/find.html" htmlEscape="true" />"><i
-                    class="icon-search"></i> Find owners</a></li>
-            <li style="width: 140px;"><a href="<spring:url value="/vets.html" htmlEscape="true" />"><i
-                    class="icon-th-list"></i> Veterinarians</a></li>
-            <li style="width: 90px;"><a href="<spring:url value="/oups.html" htmlEscape="true" />"
-                                        title="trigger a RuntimeException to see how it is handled"><i
-                    class="icon-warning-sign"></i> Error</a></li>
-            <li style="width: 80px;"><a href="#" title="not available yet. Work in progress!!"><i
-                    class=" icon-question-sign"></i> Help</a></li>
+            <li style="width: 100px;">
+            	<a href="<spring:url value="/welcome" htmlEscape="true" />">
+            	<i class="icon-home"></i>&nbsp;<fmt:message key="label.home.menu.home"/></a></li>
+            <li style="width: 135px;">
+            	<a href="<spring:url value="/owners/find.html" htmlEscape="true" />">
+            	<i class="icon-search"></i>&nbsp;<fmt:message key="label.home.menu.section1"/></a></li>
+            <li style="width: 135px;">
+            	<a href="<spring:url value="/vets.html" htmlEscape="true" />">
+            	<i class="icon-th-list"></i>&nbsp;<fmt:message key="label.home.menu.section2"/></a></li>
+            <li style="width: 135px;">
+            	<a href="<spring:url value="/oups.html" htmlEscape="true" />" title="trigger a RuntimeException to see how it is handled">
+            	<i class="icon-warning-sign"></i>&nbsp;<fmt:message key="label.home.menu.section3"/></a>
+           	</li>
+            <li style="width: 135px;">
+            	<a href="<spring:url value="/vets.html" htmlEscape="true" />">
+            	<i class="icon-th-list"></i>&nbsp;<fmt:message key="label.home.menu.section4"/></a></li>
+            <li style="width: 80px;"><a href="#" title="not available yet. Work in progress!!">
+            	<i class=" icon-question-sign"></i>&nbsp;<fmt:message key="label.home.menu.help"/></a></li>
         </ul>
     </div>
 </div>

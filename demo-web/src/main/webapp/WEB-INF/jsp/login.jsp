@@ -5,6 +5,7 @@
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="stag" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -65,7 +66,8 @@
                        <div id="signin" class="panel panel-default">
                            <div class="panel-heading"><fmt:message key="label.signin.login.title"/>:</div>
                            <div class="panel-body">
-	                           <form:form modelAttribute="account" action="/login" method="post">
+                               <spring:url value="/login.html" var="loginUrl"/>
+	                           <form:form modelAttribute="account" action="${fn:escapeXml(loginUrl)}" method="post">
 	                               <fieldset>
     								  <fmt:message key="label.signin.username" var="username"/>
                                       <stag:inputField label="${username}" name="userName" labelfor="iusername"/>
